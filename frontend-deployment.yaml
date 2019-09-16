@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demo-frontend
+  labels:
+    app: demo-frontend
+  namespace: data-transfer
+spec:
+  selector:
+      matchLabels:
+        app: demo-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo-frontend
+    spec:
+      containers:
+        - name: demo-frontend
+          image: gcr.io/silent-caster-237616/demo-frontend:2.0
+          ports:
+            - containerPort: 8081

@@ -1,0 +1,2 @@
+exit
+sudo su

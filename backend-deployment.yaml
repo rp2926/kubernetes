@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demo-backend
+  labels:
+    app: demo-backend
+  namespace: data-transfer
+spec:
+  selector:
+      matchLabels:
+        app: demo-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo-backend
+    spec:
+      containers:
+        - name: demo-backend
+          image: gcr.io/silent-caster-237616/demo-backend:2.0
+          ports:
+            - containerPort: 8080
